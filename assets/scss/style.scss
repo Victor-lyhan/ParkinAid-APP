@@ -1,0 +1,31 @@
+/*============================================ 
+# Template Name: Protfolily
+# Version: 1.0
+# Date: 25-10-2023
+# Author: 
+# Author URI: 
+# Description: Protfolily -Personal Protfolily HTML Template
+============================================*/
+
+/*============================================ 
+======== Table of Css Content =========
+# Typography
+# Normalize 
+# Global style
+# Header Area
+# Banner Area
+# Section Area
+============================================*/
+
+// CSS Plugin import
+@import "../css/bootstrap.min.css";
+
+// Scss main
+@import "main/_variable";
+@import "main/_mixins";
+@import "main/_typography";
+@import "main/_global";
+
+// Scss Pages
+@import "pages/_navbar";
+@import "pages/section.scss";

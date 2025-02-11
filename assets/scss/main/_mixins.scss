@@ -1,0 +1,20 @@
+// maximum media query
+@mixin maxQuery($max-width) {
+    @media (max-width: #{$max-width}px) {
+        @content;
+    }
+}
+
+// minimum media query
+@mixin minQuery($min-width) {
+    @media (min-width: #{$min-width}px) {
+        @content;
+    }
+}
+
+// for common box
+@mixin box($value) {
+    width: #{$value}px;
+    min-width: #{$value}px;
+    height: #{$value}px;
+}
