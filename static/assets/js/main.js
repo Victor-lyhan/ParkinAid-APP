@@ -195,7 +195,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
-      const target = document.querySelector(tab.dataset.tabTarget);
+    const target = document.querySelector(`#${tab.dataset.tabTarget}`);
+
       tabContents.forEach((tabContent) => {
         tabContent.classList.remove("active");
       });

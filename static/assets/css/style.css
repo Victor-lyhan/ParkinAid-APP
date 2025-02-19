@@ -1945,6 +1945,23 @@ input:-webkit-autofill:active {
   transform: translateY(-100px);
 }
 
+.video-container {
+    width: 100%; /* Ensure it takes full width */
+    max-width: 800px; /* Set a reasonable max width */
+    margin: 0 auto; /* Center it */
+    padding: 0; /* Remove extra padding */
+    display: flex;
+    justify-content: center; /* Center the video */
+    align-items: center;
+}
+
+video {
+    width: 100%; /* Responsive video */
+    max-width: 100%; /* Ensure it fits */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove any inline spacing */
+    border-radius: 8px; /* Optional: Add rounded corners */
+}
 .active[data-tab-content] {
   transition: all 0.5s ease-in-out;
   opacity: 1;
