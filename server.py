@@ -7,7 +7,7 @@ app = Flask(__name__, template_folder='static/templates', static_folder='static'
 
 @app.route('/')
 def home():
-    return render_template('products.html')
+    return render_template('diagnosis.html')
 
 
 @app.route('/contact')
@@ -39,6 +39,7 @@ def analyze_video(video_type):
 
     # Simulate analysis (Replace this with actual video processing logic)
     analysis_result = f"Video uploaded successfully for {analysis_type} analysis."
+    os.remove(video_path)
 
     return jsonify({"message": analysis_result, "video_path": video_path})
 
@@ -61,7 +62,8 @@ def analyze_audio(audio_type):
 
     # Simulate analysis (Replace this with actual audio processing logic)
     analysis_result = f"Audio uploaded successfully for {analysis_type} analysis."
-
+    os.remove(audio_path)
+    
     return jsonify({"message": analysis_result, "audio_path": audio_path})
 
 
