@@ -7,7 +7,7 @@ app = Flask(__name__, template_folder='static/templates', static_folder='static'
 
 @app.route('/')
 def home():
-    return render_template('products.html')
+    return render_template('diagnosis.html')
 
 
 @app.route('/contact')
