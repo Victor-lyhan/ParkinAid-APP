@@ -1,0 +1,5 @@
+yolov8n-pose.pt
+.venv
+__pycache__
+.vscode
+sample_video/PDFE01_1.mp4
