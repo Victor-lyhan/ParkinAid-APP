@@ -186,6 +186,8 @@ def fetch_df(source_path, show_video=False):
 
 
 def predict_motion(video_path):
+    var_predict = ['FoG Ratio', 'UPDRS-II', 'UPDRS-III', 'PIGD Score', 'Dyskinesia Score', 'MiniBestTest Score',
+                   'TUG time', 'TUG dual-task time']
     # Fetch the dataframe
     df = fetch_df(video_path)
     # Get rid of outliers
@@ -195,6 +197,7 @@ def predict_motion(video_path):
     std_array = np.array([ang_acc_std_df])
 
     prediction = model.predict([std_array])
+    prediction = {var_predict[i]: f"{prediction[0][i]:.2f}" for i in range(len(var_predict))}
     return prediction
 
 
