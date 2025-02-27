@@ -56,7 +56,7 @@ def analyze_video(video_type):
         # Simulate analysis (Replace this with actual video processing logic)
         analysis_result = f"Video uploaded successfully for {analysis_type} analysis."
         analysis_result = {"Response": analysis_result}
-    os.remove(video_path)
+
 
     return jsonify({"message": analysis_result})
 

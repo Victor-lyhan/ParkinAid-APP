@@ -1,5 +1,7 @@
 import math
+import os
 import time
+from pathlib import Path
 
 import cv2
 import numpy as np
@@ -188,6 +190,7 @@ def fetch_df(source_path, show_video=False):
 def predict_motion(video_path):
     var_predict = ['FoG Ratio', 'UPDRS-II', 'UPDRS-III', 'PIGD Score', 'Dyskinesia Score', 'MiniBestTest Score',
                    'TUG time', 'TUG dual-task time']
+    video_path = convert_mp4(video_path)
     # Fetch the dataframe
     df = fetch_df(video_path)
     # Get rid of outliers
@@ -198,7 +201,21 @@ def predict_motion(video_path):
 
     prediction = model.predict([std_array])
     prediction = {var_predict[i]: f"{prediction[0][i]:.2f}" for i in range(len(var_predict))}
+    os.remove(video_path)
     return prediction
+
+
+def convert_mp4(path):
+    _, extension = os.path.splitext(path)
+    extension = extension.lower()
+    if extension == '.mov':
+        video_output = Path(path).stem + '.mp4'
+        print(path, video_output)
+        os.popen(f'ffmpeg -i "{path}" "{video_output}"').read()
+        os.remove(path)
+        return video_output
+
+    return path
 
 
 if __name__ == "__main__":
