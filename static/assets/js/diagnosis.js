@@ -142,8 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const audioTabsConfig = [
         { id: "SpeechSemanticsAnalysis", title: "Speech Semantics Analysis" },
         { id: "SpeechPhonationAnalysis", title: "Speech Phonation Analysis" },
-        { id: "SpeechArticulationAnalysis", title: "Speech Articulation Analysis" },
-        { id: "SpeechProsodyAnalysis", title: "Speech Prosody Analysis" }
+        { id: "SpeechArticulationProsodyAnalysis", title: "Speech Articulation & Prosody Analysis" },
     ];
 
     audioTabsConfig.forEach(tab => {
