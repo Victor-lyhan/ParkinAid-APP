@@ -8,9 +8,12 @@ app = Flask(__name__, template_folder='static/templates', static_folder='static'
 
 
 @app.route('/')
-def home():
-    return render_template('diagnosis.html')
+def instruction():
+    return render_template('instruction.html')
 
+@app.route('/diagnosis')
+def diagnosis():
+    return render_template('diagnosis.html')
 
 @app.route('/contact')
 def contact():
