@@ -1,1 +1,3 @@
-ParkinAid app with models
+ParkinAid APP
+
+Developed by Victor Han.
