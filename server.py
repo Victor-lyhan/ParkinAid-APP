@@ -3,27 +3,36 @@ import os
 from flask import Flask, request, render_template, jsonify
 
 from body_motion import predict_motion
+from web_stats import get_view_count, get_n_session
 
 app = Flask(__name__, template_folder='static/templates', static_folder='static')
+
+# Set upload folder
+UPLOAD_FOLDER = "uploads"
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
 
 @app.route('/')
 def instruction():
     return render_template('instruction.html')
 
+
 @app.route('/diagnosis')
 def diagnosis():
     return render_template('diagnosis.html')
+
 
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
 
 
-# Set upload folder
-UPLOAD_FOLDER = "uploads"
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
+@app.route('/statistics')
+def statistics():
+    view_count = get_view_count()
+    session_count = get_n_session()
+    return jsonify({'view_count': view_count, 'session_count': session_count})
 
 
 @app.route("/analyze_video/<video_type>", methods=["POST"])
@@ -59,7 +68,6 @@ def analyze_video(video_type):
         # Simulate analysis (Replace this with actual video processing logic)
         analysis_result = f"Video uploaded successfully for {analysis_type} analysis."
         analysis_result = {"Response": analysis_result}
-
 
     return jsonify({"message": analysis_result})
 

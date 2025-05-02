@@ -25,7 +25,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const toggleButtons = document.querySelectorAll(".mood_toggle");
   const toggleName = document.querySelector(".toggle_name");
   const icons = document.querySelectorAll(".mood_icon");
-
+fetch('/statistics')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("viewsText").textContent = `${data.view_count}`;
+        document.getElementById("sessionsText").textContent = `${data.session_count}`;
+        document.getElementById("viewsText1").textContent = `${data.view_count}`;
+        document.getElementById("sessionsText1").textContent = `${data.session_count}`;
+    })
+    .catch(error => {
+        console.error("Error fetching statistics:", error);
+        document.getElementById("viewsText").textContent = "People Impacted (Views): N/A";
+        document.getElementById("sessionsText").textContent = "Analysis Ran (Sessions): N/A";
+        document.getElementById("viewsText1").textContent = "People Impacted (Views): N/A";
+        document.getElementById("sessionsText1").textContent = "Analysis Ran (Sessions): N/A";
+    });
   // Function  on the current mode
   function updateUI(isDarkMode) {
     body.classList.toggle("dark", isDarkMode);
