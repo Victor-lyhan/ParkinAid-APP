@@ -16,7 +16,7 @@ def get_view_count():
         property=f"properties/{PROPERTY_ID}",
         dimensions=[Dimension(name="country")],
         metrics=[Metric(name="activeUsers")],
-        date_ranges=[DateRange(start_date="60daysAgo", end_date="today")]
+        date_ranges=[DateRange(start_date="2025-01-01", end_date="today")]
     )
 
     response_users = client.run_report(request_users_by_country)
