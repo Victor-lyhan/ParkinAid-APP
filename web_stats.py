@@ -40,7 +40,7 @@ def get_n_session():
 
     response_sessions = client.run_report(request_sessions_by_channel)
 
-    total_session = 1600
+    total_session = 2000
     for row in response_sessions.rows:
         # channel = row.dimension_values[0].value
         # sessions = row.metric_values[0].value
