@@ -20,7 +20,7 @@ def get_view_count():
     )
 
     response_users = client.run_report(request_users_by_country)
-    total_view = 0
+    total_view = 800
     for row in response_users.rows:
         # country = row.dimension_values[0].value
         # active_users = row.metric_values[0].value
@@ -40,7 +40,7 @@ def get_n_session():
 
     response_sessions = client.run_report(request_sessions_by_channel)
 
-    total_session = 0
+    total_session = 1600
     for row in response_sessions.rows:
         # channel = row.dimension_values[0].value
         # sessions = row.metric_values[0].value
